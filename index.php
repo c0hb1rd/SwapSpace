@@ -63,12 +63,6 @@ $name = $_POST["name"];
                     mysql_query("INSERT INTO useduser(name) values(\"$name\")");
                     mysql_close($myDb);
                 }
-if($name === "蔡琳"){
-    echo "<p>你，终于来了啊。</p>";
-    echo "<p>至于那位缺大脑的，你就当他缺大脑呗，开心是一天，心烦是一天，都缺大脑了嘛^_^</p>";
-} else if ($name != ""){
-    echo "<p>你不是我要等的人。~_~</p>";
-} 
 
             ?>
         </div>

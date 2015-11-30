@@ -1,2 +1,2 @@
 # SwapSpace
-A swap space, sevice for my local host and  remote host.
+A swap space, service for my local host and  remote host.

@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>XXX</title>
+		<style type="text/css">
+			html {
+				margin: 0 auto;
+			}
+			body {
+				margin: 0 auto;
+				padding: 0;
+				width:650px;
+			}
+			div#header {
+				text-align: center;
+				height: 50px;
+				line-height: 50px;
+				width: 100%;
+				background: #bb7
+			}
+			div#body {
+				line-height: 45px;
+				text-align: left;
+				height: 590px;
+				width: 100%;
+				background: #aa8
+			}
+			div#footer {
+				padding: 0;
+				margin: 0;
+				color: #ffffff;
+				text-align: center;
+				height: 50px;
+				width: 100%;
+				line-height: 50px;
+				background: #bb7
+			}
+			div#form_item {
+				padding-left: 30px;
+				height: 40px
+			}
+			span#custom {
+				font-size: 100%;
+				color: #000000
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<!-- main header -->
+			<div id="header" >	
+				<span style=font-weight:1000>汕 尾 职 业 技 术 学 院 费 用 报 销 审 批 单</span>
+			</div>
+			
+			<!-- main body -->
+			<div id="body">
+				<form name="dataform" action="" method="get">
+				<div id="form_item">
+					<span id="custom">部门</span>
+					<input type="text" name="apartment">
+				</div>
+				<div id="form_item">
+					<span id="custom">日期</span>
+					<input type="text" name="time">
+				</div>
+				<div style="width:100%">
+					<div style="width:50%; float:left">
+						<span style="padding-left:30px">用途1:</span>
+						<div style="height:70px;padding-left:30px">
+							<textarea style=resize:none name="infomation1" type="input" cols="30" rows="4" maxlength="30"></textarea>
+						</div>
+						<span style="padding-left:30px">金额1</span>
+						<input type="text" name="cash1">
+					</div>
+					<div>
+						<span>用途2:</span>
+						<div style="height:70px">
+							<textarea style=resize:none name="infomation2" type="input" cols="30" rows="4" maxlength="30"></textarea>
+						</div>
+						<span>金额2</span>
+						<input type="text" name="cash2">
+					</div>
+				</div>
+				<div style="width:100%">
+					<div style="width:50%; float:left">
+						<span style="padding-left:30px">用途3:</span>
+						<div style="height:70px;padding-left:30px">
+							<textarea style=resize:none name="infomation3" type="input" cols="30" rows="4" maxlength="30"></textarea>
+						</div>
+						<span style="padding-left:30px">金额3</span>
+						<input type="text" name="cash3">
+					</div>
+					<div>
+						<span>用途4:</span>
+						<div style="height:70px;padding-left:10px">
+							<textarea style=resize:none name="infomation4" type="input" cols="30" rows="4" maxlength="30"></textarea>
+						</div>
+						<span>金额4</span>
+						<input type="text" name="cash4">
+					</div>
+				</div>		
+				<span style="padding-left:30px">备注:</span>
+				<div style="height:100px;padding-left:30px">
+					<textarea style="resize:none; font-size:16px" name="remark" type="input" cols="54" rows="5" maxlength="100"></textarea>
+				</div>	
+				<div id="form_item">
+					<input type="submit" value="提交">
+				</div>
+				</form>
+			</div>
+			<!-- main footer -->
+			<div id="footer">
+				<span style=font-weight:700>FOOTER</span>
+			</div>
+		</div>
+	</body>	
+</html>

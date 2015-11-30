@@ -22,7 +22,7 @@
 			div#body {
 				line-height: 45px;
 				text-align: left;
-				height: 590px;
+				height: 550px;
 				width: 100%;
 				background: #aa8
 			}
@@ -55,14 +55,10 @@
 			
 			<!-- main body -->
 			<div id="body">
-				<form name="dataform" action="" method="get">
+				<form action="printtable.php" name="dataform" action="" method="get">
 				<div id="form_item">
 					<span id="custom">部门</span>
 					<input type="text" name="apartment">
-				</div>
-				<div id="form_item">
-					<span id="custom">日期</span>
-					<input type="text" name="time">
 				</div>
 				<div style="width:100%">
 					<div style="width:50%; float:left">
@@ -71,7 +67,7 @@
 							<textarea style=resize:none name="information1" type="input" cols="30" rows="4" maxlength="30"></textarea>
 						</div>
 						<span style="padding-left:30px">金额1</span>
-						<input type="text" name="cash1">
+						<input type="text" name="cash1" maxlength="7">
 					</div>
 					<div>
 						<span>用途2:</span>
@@ -79,7 +75,7 @@
 							<textarea style=resize:none name="information2" type="input" cols="30" rows="4" maxlength="30"></textarea>
 						</div>
 						<span>金额2</span>
-						<input type="text" name="cash2">
+						<input type="text" name="cash2" maxlength="7">
 					</div>
 				</div>
 				<div style="width:100%">
@@ -89,7 +85,7 @@
 							<textarea style=resize:none name="information3" type="input" cols="30" rows="4" maxlength="30"></textarea>
 						</div>
 						<span style="padding-left:30px">金额3</span>
-						<input type="text" name="cash3">
+						<input type="text" name="cash3" maxlength="7">
 					</div>
 					<div>
 						<span>用途4:</span>
@@ -97,7 +93,7 @@
 							<textarea style=resize:none name="information4" type="input" cols="30" rows="4" maxlength="30"></textarea>
 						</div>
 						<span>金额4</span>
-						<input type="text" name="cash4">
+						<input type="text" name="cash4" maxlength="7">
 					</div>
 				</div>		
 				<span style="padding-left:30px">备注:</span>

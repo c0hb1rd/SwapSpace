@@ -108,10 +108,14 @@
             }
             
             if (sum >= 1000000) {
+                sum = parseInt(sum * 100).toString();
                 document.getElementById("commit").disabled = true;
+                sum = sum.substring(0, sum.length - 2) + "." + sum.substring(sum.length - 2, sum.length);
                 alert("总金额：" + sum + "\n每张报销单报销总金额不得超过100万。");
             } else {
-                total.value = sum;
+                sum = parseInt(sum * 100).toString();
+                sum = sum.substring(0, sum.length - 2) + "." + sum.substring(sum.length - 2, sum.length);
+                total.value = sum ;
             }
             
 		}

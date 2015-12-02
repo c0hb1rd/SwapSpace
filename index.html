@@ -24,7 +24,7 @@
 	        var flag2 = pattern2.test(cash.value);
 	        if (information.value != "") {
                 if (flag1 || flag2) {
-				    document.getElementById("commit").disabled = false;
+                    document.getElementById("commit").disabled = false;
                     return true;
                 }
                 else if (cash.value == "") {
@@ -42,7 +42,7 @@
             
             return false;
 	    }
-
+        
 		function verifyNumber() {
 		    var num = document.form1.pages.value;
             var apartment = document.form1.apartment.value;
@@ -57,6 +57,8 @@
             var cash3 = document.form1.cash3;
             var cash4 = document.form1.cash4;
             var cash5 = document.form1.cash5;
+            var total = document.getElementById("total");
+            var sum = parseFloat(cash1.value);
             
             var information1 = document.form1.information1;
 	        var information2 = document.form1.information2;
@@ -66,24 +68,30 @@
 
 			var pattern = /^\d{1,2}$/;
 		    flag = pattern.test(num);
+            
+            
 
             if(flag) {
 	            if (verifyCash(cash1, information1)) {
                     if (information2.value == "") {
                         document.getElementById("commit").focus();
                     } else {
+                        sum += parseFloat(cash2.value);
                         if (verifyCash(cash2, information2)) {
                             if (information3.value == "") {
                                 document.getElementById("commit").focus();
                             } else {
+                                sum += parseFloat(cash3.value);
                                 if (verifyCash(cash3, information3)) {
                                     if (information4.value == "") {
                                         document.getElementById("commit").focus();
                                     } else {
+                                        sum += parseFloat(cash4.value);
                                         if (verifyCash(cash4, information4)) {
                                             if (information5.value == "") {
                                                 document.getElementById("commit").focus();
                                             } else {
+                                                sum += parseFloat(cash5.value);
                                                 verifyCash(cash5, information5);
                                             }
                                         }
@@ -98,8 +106,14 @@
                 document.getElementById("commit").disabled = true;
                 alert("单据张数为空或超过100!");
             }
-
-
+            
+            if (sum >= 1000000) {
+                document.getElementById("commit").disabled = true;
+                alert("总金额：" + sum + "\n每张报销单报销总金额不得超过100万。");
+            } else {
+                total.value = sum;
+            }
+            
 		}
 	</script>
 	<style type="text/css">
@@ -114,21 +128,19 @@
 		div#body {width: 100%; height: 90%; background: #aba; position: relative}
 			div#form-base-item1 {height: 20px; width: 250px;position: absolute; margin-top: 15px; margin-left: 15px}
 			div#form-base-item2 {height: 20px; width: 250px;position: absolute; margin-top: 45px; margin-left: 15px}
-            div#form-base-item3 {height: 95px; width: 250px;position: absolute; margin-top: 95px; margin-left: 15px}
-            div#form-base-item4 {height: 95px; width: 250px;position: absolute; margin-top: 95px; margin-left: 305px}
-            div#form-base-item5 {height: 95px; width: 250px;position: absolute; margin-top: 200px; margin-left: 15px}
-            div#form-base-item6 {height: 95px; width: 250px;position: absolute; margin-top: 200px; margin-left: 305px}
-            div#form-base-item7 {height: 95px; width: 250px;position: absolute; margin-top: 310px; margin-left: 15px}
-            div#form-base-item8 {height: 95px; width: 250px;position: absolute; margin-top: 425px; margin-left: 15px}
-            div#form-base-item9 {height: 20px; width: 250px;position: absolute; margin-top: 510px; margin-left: 15px}
-                div#in-label {height: 60px; width: 72.4375px; position: absolute}
-                div#in-text {height: 60px; margin-left: 72px; position: absolute}
-                div#in-input {height: 20px; margin-top: 65px; position: absolute}
-                div#in-label2 {height: 60px; width: 72.4375px; position: absolute}
-                div#in-remark {height: 60px; margin-left: 72px; position: absolute}
-        div#footer {width: 100%; height: 6%; background: #bb7; position:relative; text-align: center}
-
-		span#custom {}
+			div#form-base-item3 {height: 95px; width: 250px;position: absolute; margin-top: 95px; margin-left: 15px}
+			div#form-base-item4 {height: 95px; width: 250px;position: absolute; margin-top: 95px; margin-left: 305px}
+			div#form-base-item5 {height: 95px; width: 250px;position: absolute; margin-top: 200px; margin-left: 15px}
+			div#form-base-item6 {height: 95px; width: 250px;position: absolute; margin-top: 200px; margin-left: 305px}
+			div#form-base-item7 {height: 95px; width: 250px;position: absolute; margin-top: 310px; margin-left: 15px}
+			div#form-base-item8 {height: 95px; width: 250px;position: absolute; margin-top: 425px; margin-left: 15px}
+			div#form-base-item9 {height: 20px; width: 250px;position: absolute; margin-top: 510px; margin-left: 15px}
+				div#in-label {height: 60px; width: 72.4375px; position: absolute}
+				div#in-text {height: 60px; margin-left: 72px; position: absolute}
+				div#in-input {height: 20px; margin-top: 65px; position: absolute}
+				div#in-label2 {height: 60px; width: 72.4375px; position: absolute}
+				div#in-remark {height: 60px; margin-left: 72px; position: absolute}
+        	div#footer {width: 100%; height: 6%; background: #bb7; position:relative; text-align: center}
 	</style>
 </head>
 <body>
@@ -137,40 +149,41 @@
 		<div id="header"><h3 id="title">汕 尾 职 业 技 术 学 院 费 用 报 销 审 批 单</h3></div>
 
 		<div id="body">
-			<form name="form1" action="printtable.php" method="get">
+			<form name="form1" action="printable.php" method="post">
 				<div id="form-base-item1"><span id="custom">单据张数: </span><input  onfocus="myReset()" type="number" placeholder="< 100" name="pages" max="99.0" min="0" value="0"></div>
 				<div id="form-base-item2"><span id="custom">报销部门: </span><input onfocus="myReset()" id="apartment" name="apartment" type="text" ></div>
 				<div id="form-base-item3">
                     <div id="in-label"><p style="margin-top: 21.5px">用途一: </p></div>
                     <div id="in-text"><textarea onfocus="myReset()" name="information1" id="information1" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash1" name="cash1" placeholder="< 100万￥" type="number" min="0" max="99999.00"></div>
+                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash1" name="cash1" placeholder="< 100万￥" type="text"></div>
                 </div>
                 <div id="form-base-item4">
                     <div id="in-label"><p style="margin-top: 21.5px">用途二: </p></div>
                     <div id="in-text"><textarea onfocus="myReset()" name="information2" id="information2" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash2" name="cash2" placeholder="< 100万￥" type="number" min="0" max="99999.00"></div>
+                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash2" name="cash2" placeholder="< 100万￥" type="text"></div>
                 </div>
                 <div id="form-base-item5">
                     <div id="in-label"><p style="margin-top: 21.5px">用途三: </p></div>
                     <div id="in-text"><textarea onfocus="myReset()" name="information3" id="information3" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash3" name="cash3" placeholder="< 100万￥" type="number" min="0" max="99999.00"></div>
+                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash3" name="cash3" placeholder="< 100万￥" type="text"></div>
                 </div>
                 <div id="form-base-item6">
                     <div id="in-label"><p style="margin-top: 21.5px">用途四: </p></div>
                     <div id="in-text"><textarea onfocus="myReset()" name="information4" id="information4" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash4" name="cash4" placeholder="< 100万￥" type="number" min="0" max="99999.00"></div>
+                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash4" name="cash4" placeholder="< 100万￥" type="text"></div>
                 </div>
 
                 <div id="form-base-item7">
                     <div id="in-label"><p style="margin-top: 21.5px">用途五: </p></div>
                     <div id="in-text"><textarea onfocus="myReset()" name="information5" id="information5" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash5" name="cash5" placeholder="< 100万￥" type="number" min="0" max="99999.00"></div>
+                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash5" name="cash5" placeholder="< 100万￥" type="text"></div>
                 </div>
 				<div id="form-base-item8">
                     <div id="in-label2"><span>备注: </span></div>
                     <div id="in-remark"><textarea onfocus="myReset()" placeholder="100字以内" name="remark" id="remark" style="overflow:hidden; resize: none; height:75px; width: 455px; float: right; font-size:14px" maxlength="100"></textarea></div>
                 </div>
-				<div id="form-base-item9"><input type="button" value="检测" onclick="verifyNumber()"/><input id="commit" style="margin-left: 0px" type="submit" value="预览" disabled="disabled"/></div>
+				<div id="form-base-item9"><input type="button" value="检测" onclick="verifyNumber()"/><input id="commit" style="margin-left: 0px" type="submit" value="预览" onclick="send()" disabled="disabled"/></div>
+                <input type="hidden" id="total" name="sum" value="100" >
 			</form>
 		</div>
 		<div id="footer"><h3 id="title">Copyright: cohbird.zn@gmail.com</h3></div>

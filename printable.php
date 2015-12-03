@@ -68,7 +68,7 @@
 			$result[$i++] = $arg % 10;
 			$arg /=10;
 		}
-		if ($i != 8 && $result[0] != "") {
+		if ($i != 8 && $i != 0) {
 			$result[$i] = "￥";
 		}
 		return $result[$mode - 1];

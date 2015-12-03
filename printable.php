@@ -116,7 +116,7 @@
 		<td height="45" align="left"><br></td>
 		<td style="border-bottom: 1px solid #000000" align="left" valign=bottom><font face="Droid Sans Fallback" size=3><?php echo "报销部门：" . $apartment?></font></td>
 		<td style="border-bottom: 1px solid #000000" align="left"><font size=3><br></font></td>
-		<td style="border-bottom: 1px solid #000000" colspan=9 align="center" valign=bottom><font face="Droid Sans Fallback" size=3>2015 年 11 月 30 日</font></td>
+		<td style="border-bottom: 1px solid #000000" colspan=9 align="center" valign=bottom><font face="Droid Sans Fallback" size=3> 年&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;日</font></td>
 		<td style="border-bottom: 1px solid #000000" align="right" valign=bottom><font face="Droid Sans Fallback" size=3><?php echo "单据及附件共 " . $pages . " 张"?></font></td>
 		<td align="left"><br></td>
 	</tr>

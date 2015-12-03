@@ -46,16 +46,16 @@
 
 	function turn($arg, $mode1, $mode2) {
 		switch (result($arg, $mode1)) {
-			case 0 . "": return " 零" . turn2($mode2);
-			case 1 . "": return " 壹" . turn2($mode2); 
-			case 2 . "": return " 贰" . turn2($mode2); 
-			case 3 . "": return " 叁" . turn2($mode2); 
-			case 4 . "": return " 肆" . turn2($mode2); 
-			case 5 . "": return " 伍" . turn2($mode2); 
-			case 6 . "": return " 陆" . turn2($mode2); 
-			case 7 . "": return " 柒" . turn2($mode2); 
-			case 8 . "": return " 捌" . turn2($mode2); 
-			case 9 . "": return " 玖" . turn2($mode2); 
+			case 0 . "": return "零" . turn2($mode2);
+			case 1 . "": return "壹" . turn2($mode2); 
+			case 2 . "": return "贰" . turn2($mode2); 
+			case 3 . "": return "叁" . turn2($mode2); 
+			case 4 . "": return "肆" . turn2($mode2); 
+			case 5 . "": return "伍" . turn2($mode2); 
+			case 6 . "": return "陆" . turn2($mode2); 
+			case 7 . "": return "柒" . turn2($mode2); 
+			case 8 . "": return "捌" . turn2($mode2); 
+			case 9 . "": return "玖" . turn2($mode2); 
 			default: return " ";
 		}
 	}
@@ -67,6 +67,9 @@
 		while((int)$arg > 0) {
 			$result[$i++] = $arg % 10;
 			$arg /=10;
+		}
+		if ($i != 8 && $result[0] != "") {
+			$result[$i] = "￥";
 		}
 		return $result[$mode - 1];
 	}
@@ -81,7 +84,7 @@
 <head>
 	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
+	<title>汕尾职业技术学院费用报销审批单</title>
 	<meta name="generator" content="LibreOffice 4.4.6.3 (Linux)"/>
 	<meta name="author" content="Crackgg "/>
 	<meta name="created" content="2015-12-02T16:46:52.190424048"/>
@@ -228,10 +231,10 @@
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="46" align="left"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle><font face="Droid Sans Fallback" size=3>金额大写：</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=3>金额大写：</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan=9 align="left" valign=middle><font face="Droid Sans Fallback" size=2><?php echo turn($sum, 8, 1) . turn($sum, 7, 2) . turn($sum, 6, 3) . turn($sum, 5, 4) . turn($sum, 4, 5) . turn($sum, 3, 6) . turn($sum, 2, 7) . turn($sum, 1, 8)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=3>￥</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle sdval="<?php echo "$sum"?>" sdnum="1033;"><font face="宋体" size=3><?php echo "$sum"?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=3></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle sdval="<?php echo "￥" . $sum?>" sdnum="1033;"><font face="宋体" size=3><?php echo "￥" . "$sum"?></font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
 	<tr>

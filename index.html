@@ -26,8 +26,7 @@
                 if (flag1 || flag2) {
                     document.getElementById("commit").disabled = false;
                     return true;
-                }
-                else if (cash.value == "") {
+                } else if (cash.value == "") {
                     alert(turn(information.id) + "金额未填写");
                     document.getElementById(cash.id).focus();
                     document.getElementById("commit").disabled = true;
@@ -184,7 +183,7 @@
                 </div>
 				<div id="form-base-item8">
                     <div id="in-label2"><span>备注: </span></div>
-                    <div id="in-remark"><textarea onfocus="myReset()" placeholder="100字以内" name="remark" id="remark" style="overflow:hidden; resize: none; height:75px; width: 455px; float: right; font-size:14px" maxlength="100"></textarea></div>
+                    <div id="in-remark"><textarea onfocus="myReset()" placeholder="85字以内" name="remark" id="remark" style="overflow:hidden; resize: none; height:75px; width: 455px; float: right; font-size:14px" maxlength="85"></textarea></div>
                 </div>
 				<div id="form-base-item9"><input type="button" value="检测" onclick="verifyNumber()"/><input id="commit" style="margin-left: 0px" type="submit" value="预览" onclick="send()" disabled="disabled"/></div>
                 <input type="hidden" id="total" name="sum" value="100" >

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>汕尾职业技术学院借款审批单</title>
+	<script language="Javascript">
+		function reverify() {
+			document.getElementById("commit").disabled = true;	
+		}
+		
+		function verifyNumber() {
+			var apartment = document.form1.apartment.value;
+			var user = document.form1.user.value;
+			var cash = document.form1.cash.value;
+			var remark = document.form1.remark.value;
+			
+			pattern1 = /^\d{1,6}$/;
+			pattern2 = /^\d{1,6}\.\d{1,2}$/;
+	        var flag1 = pattern1.test(cash);
+	        var flag2 = pattern2.test(cash);
+			
+			if (apartment == "") {
+				document.getElementById("apartment").focus();
+				alert("申请部门未填写");
+				return;
+			} else if (user == "") {
+				document.getElementById("user").focus();
+				alert("申请人姓名未填写");
+				return;
+			} else if (cash == "") {
+				document.getElementById("cash").focus();
+				alert("申请金额未填写");
+				return;
+			} else if (1) {
+				if (flag1 || flag2) {
+					if (remark == "") {
+						document.getElementById("remark").focus();
+						alert("借款用途未填写");
+						return;
+					}
+				} else {
+					document.getElementById("cash").focus();
+					alert("金额格式为不大于10万，可保留两小数位");
+					return;	
+				}
+			} 
+			
+			document.getElementById("commit").disabled = false;
+			document.getElementById("commit").focus();
+		}
+	</script>
+	<style type="text/css">
+		html {margin: 0 auto}
+		body {margin: 0 auto; padding: 0; width: 570px; height: 600px}
+
+		div#main  {width: 570px; height: 600px}
+
+		div#header {width: 100%; height: 6%; background: #bb7; position:relative; text-align: center}
+			h3#title {position:absolute; height: 20px; width: 100%; margin-top: 8px; margin-bottom: 5px}
+
+		div#body {width: 100%; height: 90%; background: #aba; position: relative}
+			div#form-base-item1 {height: 20px; width: 250px;position: absolute; margin-top: 15px; margin-left: 15px}
+			div#form-base-item2 {height: 20px; width: 250px;position: absolute; margin-top: 55px; margin-left: 15px}
+			div#form-base-item3 {height: 95px; width: 250px;position: absolute; margin-top: 95px; margin-left: 15px}
+			div#form-base-item4 {height: 95px; width: 250px;position: absolute; margin-top: 95px; margin-left: 305px}
+			div#form-base-item5 {height: 95px; width: 250px;position: absolute; margin-top: 200px; margin-left: 15px}
+			div#form-base-item6 {height: 95px; width: 250px;position: absolute; margin-top: 200px; margin-left: 305px}
+			div#form-base-item7 {height: 95px; width: 250px;position: absolute; margin-top: 310px; margin-left: 15px}
+			div#form-base-item8 {height: 95px; width: 250px;position: absolute; margin-top: 135px; margin-left: 15px}
+			div#form-base-item9 {height: 20px; width: 250px;position: absolute; margin-top: 510px; margin-left: 15px}
+				div#in-label {height: 60px; width: 72.4375px; position: absolute}
+				div#in-text {height: 60px; margin-left: 72px; position: absolute}
+				div#in-input {height: 20px; margin-top: 65px; position: absolute}
+				div#in-label2 {height: 60px; position: absolute}
+				div#in-remark {height: 60px; margin-left: 45px; position: absolute}
+        	div#footer {width: 100%; height: 6%; background: #bb7; position:relative; text-align: center}
+	</style>
+</head>
+<body>
+	<div id="main">
+		
+		<div id="header"><h3 id="title">汕 尾 职 业 技 术 学 院 借 款 审 批 单</h3></div>
+
+		<div id="body">
+			<form name="form1" action="printtable1.php" method="post">
+				<div id="form-base-item1"><span>部门 : </span><input onfocus="reverify()" id="apartment" name="apartment" type="text" ></div>
+				<div id="form-base-item2"><span>姓名 : </span><input onfocus="reverify()" id="user" name="user" type="text" ></div>
+				<div id="form-base-item3"><span>金额 : </span><input placeholder="< 100万￥" onfocus="reverify()" id="cash" name="cash" type="text" ></div>
+				<div id="form-base-item8">
+                    <div id="in-label2"><span>用途: </span></div>
+                    <div id="in-remark"><textarea onfocus="reverify()" placeholder="90字以内" name="remark" id="remark" style="overflow:hidden; resize: none; height:75px; width: 455px; float: right; font-size:14px" maxlength="90"></textarea></div>
+                </div>
+				<div id="form-base-item9"><input type="button" value="检测" onclick="verifyNumber()"/><input id="commit" style="margin-left: 1px" type="submit" value="预览" onclick="send()" disabled="disabled"/><a href="index.html"><input id="commit" style="margin-left: 1px" type="button" value="返回"/></a></div>
+			</form>
+		</div>
+		<div id="footer"><h3 id="title">Copyright: cohbird.zn@gmail.com</h3></div>
+
+	</div>
+</body>
+</html>

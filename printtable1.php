@@ -1,5 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <?php
+	if (date("a") == "pm") {
+		$hour = (int) date("h") + 12;
+		$datetime = date("Ymd") . $hour . date("is");
+	}
+	else if (date("h") == 12) {
+		$hour = (int)date("h") - 12;
+		$datetime = date("Ymd") . "0" . $hour . date("is");
+	}
+	else {
+		$hour = date("h");
+		$datetime = date("Ymd") . $hour . date("is");
+	}
+	
 	$sum = (float)$_POST['cash'];
 	$remark = $_POST['remark'];
 	$user = $_POST['user'];
@@ -80,7 +93,7 @@
 	<colgroup width="217"></colgroup>
 	<colgroup width="91"></colgroup>
 	<tr>
-		<td height="64" align="left" valign=middle><br></td>
+		<td height="60" align="left" valign=middle><br></td>
 		<td colspan=6 align="center" valign=bottom><b><u><font face="Droid Sans Fallback" size=5>汕尾职业技术学院借款审批单<font></u></b></td>
 		</tr>
 	<tr>
@@ -126,12 +139,10 @@
 	</tr>
 	<tr>
 		<td height="46" align="left" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000" align="left" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000" align="left" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000" align="left" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000" align="left" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000" align="left" valign=middle><br></td>
-		<td style="border-top: 1px solid #000000" align="left" valign=middle><br></td>
+		<!-- <td style="border-top: 1px solid #000000" align="left" valign=middle></td> -->
+		<td style="border-top: 1px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: 0px solid #000000" colspan=2 align="left" valign=middle><font face="Droid Sans Fallback" size=1><?php echo "单号：" . $datetime?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: 0px solid #000000" colspan=3 align="center" valign=middle><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: 0px solid #000000" align="center" valign=middle><br></td>
 		<td align="left" valign=middle><font color="#FF0000"><br></font></td>
 	</tr>
 </table>

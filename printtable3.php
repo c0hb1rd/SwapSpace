@@ -114,19 +114,19 @@
 	</tr>
 	<tr>
 		<td height="45" align="left"><br></td>
-		<td style="border-bottom: 1px solid #000000" align="left" valign=bottom><font face="Droid Sans Fallback" size=3><?php echo "报销部门：" . $apartment?></font></td>
+		<td style="border-bottom: 1px solid #000000" align="left" valign=bottom><font face="Droid Sans Fallback" size=2><?php echo "报销部门：" . $apartment?></font></td>
 		<td style="border-bottom: 1px solid #000000" align="left"><font size=3><br></font></td>
-		<td style="border-bottom: 1px solid #000000" colspan=9 align="center" valign=bottom><font face="Droid Sans Fallback" size=3>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</font></td>
-		<td style="border-bottom: 1px solid #000000" align="right" valign=bottom><font face="Droid Sans Fallback" size=3><?php echo "单据及附件共 " . $pages . " 张"?></font></td>
+		<td style="border-bottom: 1px solid #000000" colspan=9 align="center" valign=bottom><font face="Droid Sans Fallback" size=2>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</font></td>
+		<td style="border-bottom: 1px solid #000000" align="right" valign=bottom><font face="Droid Sans Fallback" size=2><?php echo "单据及附件共 " . $pages . " 张"?></font></td>
 		<td align="left"><br></td>
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="20" align="left"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" rowspan=2 align="center" valign=middle><font face="Droid Sans Fallback" size=3> 用</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle><font face="Droid Sans Fallback" size=3 color="#000000">途</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan=4 align="center" valign=middle><font face="Droid Sans Fallback" size=3>金</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="center" valign=middle><font face="Droid Sans Fallback" size=3>额</font></td>
-		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=bottom><font face="Droid Sans Fallback" size=3>备</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" rowspan=2 align="center" valign=middle><font face="Droid Sans Fallback" size=2> 用</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle><font face="Droid Sans Fallback" size=2>途</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan=4 align="center" valign=middle><font face="Droid Sans Fallback" size=2>金</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="center" valign=middle><font face="Droid Sans Fallback" size=2>额</font></td>
+		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=bottom><font face="Droid Sans Fallback" size=2>备</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=4 align="center" valign=middle sdval="6" sdnum="1033;"><font size=2><?php echo "$remark"?></font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
@@ -145,106 +145,106 @@
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="1" sdnum="1033;"><font size=1><?php echo "$information1"?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash1, 8)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash1, 7)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash1, 6)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash1, 5)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash1, 4)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash1, 3)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash1, 2)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash1, 1)?></font></td>
-		<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><font face="Droid Sans Fallback" size=3>注</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 8)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 7)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 6)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 5)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 4)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 3)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 2)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 1)?></font></td>
+		<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><font face="Droid Sans Fallback" size=2>注</font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="2" sdnum="1033;"><font size=1><?php echo "$information2"?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash2, 8)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash2, 7)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash2, 6)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash2, 5)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash2, 4)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash2, 3)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash2, 2)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash2, 1)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 8)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 7)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 6)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 5)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 4)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 3)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 2)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 1)?></font></td>
 		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top><font size=3><br></font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="3" sdnum="1033;"><font size=1><?php echo "$information3"?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash3, 8)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash3, 7)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash3, 6)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash3, 5)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash3, 4)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash3, 3)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash3, 2)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash3, 1)?></font></td>
-		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><font face="Droid Sans Fallback" size=3>专项</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 8)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 7)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 6)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 5)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 4)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 3)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 2)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 1)?></font></td>
+		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><font face="Droid Sans Fallback" size=2>专项</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle><font size=3><br></font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="4" sdnum="1033;"><font size=1><?php echo "$information4"?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash4, 8)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash4, 7)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash4, 6)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash4, 5)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash4, 4)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash4, 3)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash4, 2)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash4, 1)?></font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top><font face="Droid Sans Fallback" size=3>分类</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 8)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 7)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 6)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 5)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 4)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 3)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 2)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 1)?></font></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top><font face="Droid Sans Fallback" size=2>分类</font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="5" sdnum="1033;"><font size=1><?php echo "$information5"?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash5, 8)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash5, 7)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash5, 6)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash5, 5)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash5, 4)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash5, 3)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash5, 2)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($cash5, 1)?></font></td>
-		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><font face="Droid Sans Fallback" size=3>领导</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 8)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 7)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 6)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 5)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 4)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 3)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 2)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 1)?></font></td>
+		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><font face="Droid Sans Fallback" size=2>领导</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle><font size=3><br></font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle><font face="Droid Sans Fallback" size=3 color="#000000">合</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Droid Sans Fallback" size=3>计</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($sum, 8)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($sum, 7)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($sum, 6)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($sum, 5)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($sum, 4)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($sum, 3)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($sum, 2)?></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=3><?php echo result($sum, 1)?></font></td>
-		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top><font face="Droid Sans Fallback" size=3>审批</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle><font face="Droid Sans Fallback" size=2 color="#000000">合</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Droid Sans Fallback" size=2>计</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($sum, 8)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($sum, 7)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($sum, 6)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($sum, 5)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($sum, 4)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($sum, 3)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($sum, 2)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($sum, 1)?></font></td>
+		<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top><font face="Droid Sans Fallback" size=2>审批</font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="46" align="left"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=3>金额大写：</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=2>金额大写：</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan=9 align="left" valign=middle><font face="Droid Sans Fallback" size=2><?php echo turn($sum, 8, 1) . turn($sum, 7, 2) . turn($sum, 6, 3) . turn($sum, 5, 4) . turn($sum, 4, 5) . turn($sum, 3, 6) . turn($sum, 2, 7) . turn($sum, 1, 8)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=3></font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle sdval="<?php echo "￥" . $sum?>" sdnum="1033;"><font face="宋体" size=3><?php echo "￥" . "$sum"?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle sdval="<?php echo "￥" . $sum?>" sdnum="1033;"><font face="宋体" size=2><?php echo "￥" . "$sum"?></font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
 	<tr>
 		<td height="27" align="left"><br></td>
-		<td style="border-top: 1px solid #000000" align="left" valign=middle><font face="Droid Sans Fallback" size=3>会计主管： </font></td>
-		<td style="border-top: 1px solid #000000" colspan=3 align="center" valign=middle><font face="Droid Sans Fallback" size=3>审批： </font></td>
+		<td style="border-top: 1px solid #000000" align="left" valign=middle><font face="Droid Sans Fallback" size=2>会计主管： </font></td>
+		<td style="border-top: 1px solid #000000" colspan=3 align="center" valign=middle><font face="Droid Sans Fallback" size=2>审批： </font></td>
 		<td style="border-top: 1px solid #000000" align="left"><font size=3><br></font></td>
 		<td style="border-top: 1px solid #000000" align="left"><font size=3><br></font></td>
-		<td style="border-top: 1px solid #000000" colspan=5 align="right" valign=top><font face="Droid Sans Fallback" size=3>证明： </font></td>
-		<td style="border-top: 1px solid #000000" align="center" valign=top><font face="Droid Sans Fallback" size=3>报销人： </font></td>
+		<td style="border-top: 1px solid #000000" colspan=5 align="right" valign=top><font face="Droid Sans Fallback" size=2>证明： </font></td>
+		<td style="border-top: 1px solid #000000" align="center" valign=top><font face="Droid Sans Fallback" size=2>报销人： </font></td>
 		<td align="left"><br></td>
 	</tr>
 	<tr>

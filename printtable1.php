@@ -18,6 +18,10 @@
 	$user = $_POST['user'];
 	$apartment = $_POST['apartment'];
 	
+	$year = $_POST['year'];
+	$month = $_POST['month'];
+	$day = $_POST['day'];
+	
 	function turn2($mode) {
 		switch ($mode) {
 			case 1: return "拾";
@@ -56,6 +60,23 @@
 			$arg /=10;
 		}
 		return $result[$mode - 1];
+	}
+	
+	$total = turn($sum, 8, 1) . turn($sum, 7, 2) . turn($sum, 6, 3) . turn($sum, 5, 4) . turn($sum, 4, 5) . turn($sum, 3, 6) . turn($sum, 2, 7) . turn($sum, 1, 8);
+	if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0 && result($sum, 4) == 0 && result($sum, 5) && result($sum, 6) == 0 && result($sum, 7) == 0) {
+		$total = substr($total, 0, (strlen($total) - 42)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0 && result($sum, 4) == 0 && result($sum, 5) && result($sum, 6) == 0) {
+		$total = substr($total, 0, (strlen($total) - 36)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0 && result($sum, 4) == 0 && result($sum, 5)) {
+		$total = substr($total, 0, (strlen($total) - 30)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0 && result($sum, 4) == 0) {
+		$total = substr($total, 0, (strlen($total) - 24)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0)  {
+		$total = substr($total, 0, (strlen($total) - 18)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0) {
+		$total = substr($total, 0, (strlen($total) - 12)) . "整";
+	} else if (result($sum, 1) == 0){
+		$total = substr($total, 0, (strlen($total) - 6));
 	}
 	
 	$myDb = mysql_connect("localhost:3306", "root", "hackingme?233333");
@@ -98,7 +119,7 @@
 		</tr>
 	<tr>
 		<td height="33" align="left" valign=middle><br></td>
-		<td style="border-bottom: 1px solid #000000" colspan=6 align="center" valign=bottom><font face="Droid Sans Fallback">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</font></td>
+		<td style="border-bottom: 1px solid #000000" colspan=6 align="center" valign=bottom><font face="Droid Sans Fallback"><?php echo $year . ""?>年<?php echo $month . ""?>月<?php if($day >= 10) echo $day . ""; else echo " " .$day?>日</font></td>
 		<td align="left" valign=middle><br></td>
 	</tr>
 	<tr>
@@ -118,7 +139,7 @@
 	<tr>
 		<td style="border-right: 1px solid #000000" height="42" align="left" valign=middle><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle><font face="Droid Sans Fallback">借款金额:</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan=3 align="left" valign=middle><font face="Droid Sans Fallback"><?php echo "人民币：". turn($sum, 8, 1) . turn($sum, 7, 2) . turn($sum, 6, 3) . turn($sum, 5, 4) . turn($sum, 4, 5) . turn($sum, 3, 6) . turn($sum, 2, 7) . turn($sum, 1, 8)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan=3 align="left" valign=middle><font face="Droid Sans Fallback"><?php echo $total . ""?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback"></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle sdval="58612456" sdnum="1033;0;0.00_ "><?php echo "￥" . $sum?></td>
 		<td style="border-left: 1px solid #000000" align="left" valign=middle><br></td>

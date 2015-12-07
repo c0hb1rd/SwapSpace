@@ -1,196 +1,308 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html onchange="test2()">
 <head>
-	<meta charset="utf-8">
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<title>汕尾职业技术学院费用报销审批单</title>
-	<script language="Javascript">
-        function myReset() {
-            document.getElementById("commit").disabled = true;
-        }
-        function turn(information) {
-            switch(information) {
+	<meta name="generator" content="LibreOffice 4.4.6.3 (Linux)"/>
+	<meta name="author" content="微软用户"/>
+	<meta name="created" content="2010-08-25T17:33:30"/>
+	<meta name="changedby" content="Crackgg "/>
+	<meta name="changed" content="2015-12-04T15:07:59.287931406"/>
+	
+	<style type="text/css">
+		body {margin: 0 auto; padding: 0; position: absolute; width: 100%; height: 100%}
+		div#main{ font-family:"宋体"; font-size:small; position: absolute; height:100% - 5em; width: 850px; left: 25%; margin-top: 5em; margin-left: 5em}
+		/*div#body {font-family:"宋体"; font-size:small; position: absolute; height:95%; width: 850px; background: #fff; top: 10em; left: 10em; align-content: center; text-align: center}*/
+		div#menu{ position: absolute; padding: 0; height: 100%; right: 75%; width: 25%; line-height: 1em ; background: #abb; }
+		div#top { position: absolute; padding: 0; height: 30%; width: 100%; text-align: center; margin-top: 1em; line-height: 3em}
+		div#bottom { position: absolute; padding: 0; height: 70%; width: 100%; top: 30%; background: #bdd}
+	</style>
+	
+	<script type="text/javascript">
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth() + 1;
+		var yy = today.getFullYear();
+		
+		function get_Day() { return dd };
+		function get_Month() { return mm };
+		function get_Year() { return yy }; 
+		
+		function myReset() {document.getElementById("commit").disabled = true; }
+		
+		function turnValue(arg) {
+            switch(arg.id) {
                 case "information1": return "用途一";
                 case "information2": return "用途二";
                 case "information3": return "用途三";
                 case "information4": return "用途四";
                 case "information5": return "用途五";
+				case "cash1": return "金额一";
+				case "cash2": return "金额二";
+				case "cash3": return "金额三";
+				case "cash4": return "金额四";
+				case "cash5": return "金额五";
             }
         }
-        
-	    function verifyCash(cash, information) {
-	        pattern1 = /^\d{1,6}$/;
+		
+		function getSum() {
+            var cash1 = parseInt(document.form1.cash1.value * 100);
+			var cash2 = parseInt(document.form1.cash2.value * 100);
+            var cash3 = parseInt(document.form1.cash3.value * 100);
+            var cash4 = parseInt(document.form1.cash4.value * 100);
+            var cash5 = parseInt(document.form1.cash5.value * 100);			
+			
+			total =  cash1 + cash2 + cash3 + cash4 +cash5;
+			total = total + "";
+			if (total != "0")
+				total = total.substring(0, total.length - 2) + "." + total.substring(total.length - 2, total.length);
+			document.getElementById("total1").innerHTML = total;
+			document.getElementById("total2").innerHTML = total;
+		}
+		
+		function judge(cash, information) {
+			pattern1 = /^\d{1,6}$/;
 			pattern2 = /^\d{1,6}\.\d{1,2}$/;
 	        var flag1 = pattern1.test(cash.value);
 	        var flag2 = pattern2.test(cash.value);
-	        if (information.value != "") {
-                if (flag1 || flag2) {
-                    document.getElementById("commit").disabled = false;
-                    return true;
-                } else if (cash.value == "") {
-                    alert(turn(information.id) + "金额未填写");
-                    document.getElementById(cash.id).focus();
-                    document.getElementById("commit").disabled = true;
-                } else {
-                    alert(turn(information.id) + "金额格式为不大于10万，可保留两小数位");
-                    document.getElementById(cash.id).focus();
-                }
+			
+			if (information.value == "" && cash.value != "") {
+				alert(turnValue(information) + "未填写");
+				document.getElementById(information.id).focus();
+				document.getElementById("commit").disabled = true;
+				return false;
+			} else if (information.value != "" && cash.value == ""){
+				alert(turnValue(cash) + "未填写");
+				document.getElementById(cash.id).focus();
+				document.getElementById("commit").disabled = true;
+				return false;
+			} else if (information.value != "" && cash.value != "") { 
+				if (flag1 || flag2) {
+					document.getElementById("commit").disabled = false;
+					return true;
+				} else {
+					alert(turnValue(cash) + "格式错误， 请阅读说明1");
+					document.getElementById(cash.id).focus();
+					document.getElementById("commit").disabled = true;
+					return false;
+				}
 			} else {
-                alert(turn(information.id) + "未填写");
-                document.getElementById(information.id).focus();
-            }
-            
-            return false;
-	    }
+				document.getElementById("commit").disabled = false;
+				return true;
+			}
+		}
         
 		function verifyNumber() {
-		    var num = document.form1.pages.value;
             var apartment = document.form1.apartment.value;
-            if (apartment == "") {
-                alert("报销部门未填写");
-                document.getElementById("apartment").focus();
-                return;
-            }
-            
-            var cash1 = document.form1.cash1;
+			
+			var cash1 = document.form1.cash1;
             var cash2 = document.form1.cash2;
             var cash3 = document.form1.cash3;
             var cash4 = document.form1.cash4;
             var cash5 = document.form1.cash5;
-            var total = document.getElementById("total");
-            var sum = parseFloat(cash1.value);
-            
+			
             var information1 = document.form1.information1;
 	        var information2 = document.form1.information2;
 	        var information3 = document.form1.information3;
 	        var information4 = document.form1.information4;
 	        var information5 = document.form1.information5;
 
-			var pattern = /^\d{1,2}$/;
-		    flag = pattern.test(num);
-            
-            
-
-            if(flag) {
-	            if (verifyCash(cash1, information1)) {
-                    if (information2.value == "") {
-                        document.getElementById("commit").focus();
-                    } else {
-                        sum += parseFloat(cash2.value);
-                        if (verifyCash(cash2, information2)) {
-                            if (information3.value == "") {
-                                document.getElementById("commit").focus();
-                            } else {
-                                sum += parseFloat(cash3.value);
-                                if (verifyCash(cash3, information3)) {
-                                    if (information4.value == "") {
-                                        document.getElementById("commit").focus();
-                                    } else {
-                                        sum += parseFloat(cash4.value);
-                                        if (verifyCash(cash4, information4)) {
-                                            if (information5.value == "") {
-                                                document.getElementById("commit").focus();
-                                            } else {
-                                                sum += parseFloat(cash5.value);
-                                                verifyCash(cash5, information5);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                    
-            } else {
-                document.getElementById("commit").disabled = true;
-                alert("单据张数为空或超过100!");
-            }
-            
-            if (sum >= 1000000) {
-                sum = parseInt(sum * 100).toString();
-                document.getElementById("commit").disabled = true;
-                sum = sum.substring(0, sum.length - 2) + "." + sum.substring(sum.length - 2, sum.length);
-                alert("总金额：" + sum + "\n每张报销单报销总金额不得超过100万。");
-            } else {
-                sum = parseInt(sum * 100).toString();
-                sum = sum.substring(0, sum.length - 2) + "." + sum.substring(sum.length - 2, sum.length);
-                total.value = sum ;
-            }
-            
+			pattern1 = /^\d{1,6}$/;
+			pattern2 = /^\d{1,6}\.\d{1,2}$/;
+	        var flag1 = pattern1.test(cash1.value);
+	        var flag2 = pattern2.test(cash1.value);
+			
+            if (apartment == "") {
+                alert("报销部门未填写");
+                document.getElementById("apartment").focus();
+                return;
+            } 
+			
+			if (information1.value == "") {
+				alert("用途一未填写");
+				document.getElementById("information1").focus();
+				return;
+			} else {
+				 if (cash1.value == "") {
+                    alert("金额一未填写");
+                    document.getElementById(cash1.id).focus();
+                    document.getElementById("commit").disabled = true;
+					return;
+                } else {
+					if (flag1 || flag2) {
+                   		document.getElementById("commit").disabled = false;
+                	} else {
+						alert("金额格式错误， 请阅读说明1");
+						document.getElementById(cash1.id).focus();
+						document.getElementById("commit").disabled = true;
+						return;
+					}
+				}
+			}
+			
+			if (judge(cash2, information2))
+				if (judge(cash3, information3))
+					if (judge(cash4, information4))
+						if (judge(cash5, information5))
+							;
 		}
 	</script>
-	<style type="text/css">
-		html {margin: 0 auto}
-		body {margin: 0 auto; padding: 0; width: 570px; height: 600px}
-
-		div#main  {width: 570px; height: 600px}
-
-		div#header {width: 100%; height: 6%; background: #bb7; position:relative; text-align: center}
-			h3#title {position:absolute; height: 20px; width: 100%; margin-top: 8px; margin-bottom: 5px}
-
-		div#body {width: 100%; height: 90%; background: #aba; position: relative}
-			div#form-base-item1 {height: 20px; width: 250px;position: absolute; margin-top: 15px; margin-left: 15px}
-			div#form-base-item2 {height: 20px; width: 250px;position: absolute; margin-top: 45px; margin-left: 15px}
-			div#form-base-item3 {height: 95px; width: 250px;position: absolute; margin-top: 95px; margin-left: 15px}
-			div#form-base-item4 {height: 95px; width: 250px;position: absolute; margin-top: 95px; margin-left: 305px}
-			div#form-base-item5 {height: 95px; width: 250px;position: absolute; margin-top: 200px; margin-left: 15px}
-			div#form-base-item6 {height: 95px; width: 250px;position: absolute; margin-top: 200px; margin-left: 305px}
-			div#form-base-item7 {height: 95px; width: 250px;position: absolute; margin-top: 310px; margin-left: 15px}
-			div#form-base-item8 {height: 95px; width: 250px;position: absolute; margin-top: 425px; margin-left: 15px}
-			div#form-base-item9 {height: 20px; width: 250px;position: absolute; margin-top: 510px; margin-left: 15px}
-				div#in-label {height: 60px; width: 72.4375px; position: absolute}
-				div#in-text {height: 60px; margin-left: 72px; position: absolute}
-				div#in-input {height: 20px; margin-top: 65px; position: absolute}
-				div#in-label2 {height: 60px; width: 72.4375px; position: absolute}
-				div#in-remark {height: 60px; margin-left: 72px; position: absolute}
-        	div#footer {width: 100%; height: 6%; background: #bb7; position:relative; text-align: center}
-	</style>
+	
 </head>
-<body>
-	<div id="main">
-		
-		<div id="header"><h3 id="title">汕 尾 职 业 技 术 学 院 费 用 报 销 审 批 单</h3></div>
-
-		<div id="body">
-			<form name="form1" action="printtable3.php" method="post">
-				<div id="form-base-item1"><span id="custom">单据张数: </span><input  onfocus="myReset()" type="number" placeholder="< 100" name="pages" max="99.0" min="0" value="0"></div>
-				<div id="form-base-item2"><span id="custom">报销部门: </span><input onfocus="myReset()" id="apartment" name="apartment" type="text" ></div>
-				<div id="form-base-item3">
-                    <div id="in-label"><p style="margin-top: 21.5px">用途一: </p></div>
-                    <div id="in-text"><textarea onfocus="myReset()" name="information1" id="information1" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash1" name="cash1" placeholder="< 100万￥" type="text"></div>
-                </div>
-                <div id="form-base-item4">
-                    <div id="in-label"><p style="margin-top: 21.5px">用途二: </p></div>
-                    <div id="in-text"><textarea onfocus="myReset()" name="information2" id="information2" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash2" name="cash2" placeholder="< 100万￥" type="text"></div>
-                </div>
-                <div id="form-base-item5">
-                    <div id="in-label"><p style="margin-top: 21.5px">用途三: </p></div>
-                    <div id="in-text"><textarea onfocus="myReset()" name="information3" id="information3" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash3" name="cash3" placeholder="< 100万￥" type="text"></div>
-                </div>
-                <div id="form-base-item6">
-                    <div id="in-label"><p style="margin-top: 21.5px">用途四: </p></div>
-                    <div id="in-text"><textarea onfocus="myReset()" name="information4" id="information4" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash4" name="cash4" placeholder="< 100万￥" type="text"></div>
-                </div>
-
-                <div id="form-base-item7">
-                    <div id="in-label"><p style="margin-top: 21.5px">用途五: </p></div>
-                    <div id="in-text"><textarea onfocus="myReset()" name="information5" id="information5" placeholder="30字以内" style="overflow:hidden; resize: none; height:54px; width: 167px; float: right; font-size:14px" maxlength="30"></textarea></div>
-                    <div id="in-input"><span id="custom">对应金额: </span><input onfocus="myReset()" id="cash5" name="cash5" placeholder="< 100万￥" type="text"></div>
-                </div>
-				<div id="form-base-item8">
-                    <div id="in-label2"><span>备注: </span></div>
-                    <div id="in-remark"><textarea onfocus="myReset()" placeholder="85字以内" name="remark" id="remark" style="overflow:hidden; resize: none; height:75px; width: 455px; float: right; font-size:14px" maxlength="85"></textarea></div>
-                </div>
-				<div id="form-base-item9"><input type="button" value="检测" onclick="verifyNumber()"/><input id="commit" style="margin-left: 1px" type="submit" value="预览" onclick="send()" disabled="disabled"/><a href="index.html"><input id="commit" style="margin-left: 1px" type="button" value="返回"/></a></div>
-                <input type="hidden" id="total" name="sum" value="100" >
-			</form>
-		</div>
-		<div id="footer"><h3 id="title">Copyright: cohbird.zn@gmail.com</h3></div>
-
+<body onmousemove="getSum()">
+<div id="menu">
+	<div id="top">
+		<a href="index.html">首页</a><br />
+		<a href="index1.html">汕尾职业技术学院借款审批单</a><br />
+		<a href="index2.html">汕尾职业技术学院差旅费报销单</a>
 	</div>
+	<div id="bottom">
+		<label style="position:absolute; top: 3em; left: 1em" id="lbltipAddedComment">说明：</label>
+		<label style="position:absolute; top: 5em; left: 2em; line-height: 22px" >1：各项费用小于6位整数，可保留2位小数<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35673.39、 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5487、 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1495.05</label>
+		<label style="position:absolute; top: 13em; left: 2em" >2：用途字数为20字内</label>
+		<label style="position:absolute; top: 15em; left: 2em" >3：备注字数为80字内</label>
+		<label style="position:absolute; top: 17em; left: 2em" >4：备注内容可填可不填</label>
+		<label style="position:absolute; top: 19em; left: 2em" >5：单据及附件默认为0张</label>
+		<label style="position:absolute; bottom: 1em; left: 6px">*注：因打印格式所局限选项，可选择手动填写</label>
+	</div>
+</div>
+<div id="main">
+	<div id="body">
+		<form action="printtable3.php" id="form1" name="form1" method="post">
+			<table cellspacing="0" border="0">
+				<colgroup width="92"></colgroup>
+				<colgroup width="167"></colgroup>
+				<colgroup width="138"></colgroup>
+				<colgroup span="8" width="19"></colgroup>
+				<colgroup width="48"></colgroup>
+				<colgroup width="257"></colgroup>
+				<colgroup width="85"></colgroup>
+				<tr>
+					<td height="60" align="left"><br></td>
+					<td colspan=12 align="center" valign=bottom><b><u><font face="Droid Sans Fallback" size=5>汕尾职业技术学院费用报销审批单</font></u></b></td>
+					<td align="left"><br></td>
+				</tr>
+				<tr>
+					<td height="45" align="left"><br></td>
+					<td style="border-bottom: 1px solid #000000" colspan="2" align="left" valign=bottom><font face="Droid Sans Fallback" size=2>报销部门：</font><input onfocus="myReset()" id="apartment" name="apartment" type="text" style="width:100px; text-align: center" maxlength="7"></td>
+					<td style="border-bottom: 1px solid #000000" colspan=9 align="leftr" valign=bottom><font face="Droid Sans Fallback" size=2><input onfocus="myReset()" type="number" id="year" name="year" style="width:50px">年<input onfocus="myReset()" type="number" style="width:35px" id="month" name="month" max="12" min="1">月<input onfocus="myReset()" type="number" style="width:35px" id="day" name="day" max="31" min="1">日</font></td>
+					<script>
+						document.getElementById("year").value = get_Year();
+						document.getElementById("month").value = get_Month();
+						document.getElementById("day").value = get_Day();
+					</script>
+					<td style="border-bottom: 1px solid #000000" align="right" valign=bottom><font face="Droid Sans Fallback" size=2>单据及附件张 </font><input onfocus="myReset()" id="pages" name="pages" value="0" type="number" style="width:35px" maxlength="2" max="99" min="0"><font face="Droid Sans Fallback" size=2> 张</font></td>
+				</tr>
+				<tr>
+					<td style="border-right: 1px solid #000000" height="20" align="left"><br></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" rowspan=2 align="center" valign=middle><font face="Droid Sans Fallback" size=2> 用</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle><font face="Droid Sans Fallback" size=2>途</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan=4 align="center" valign=middle><font face="Droid Sans Fallback" size=2>金</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="center" valign=middle><font face="Droid Sans Fallback" size=2>额</font></td>
+					<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=bottom><font face="Droid Sans Fallback" size=2>备</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=4 align="center" valign=middle sdval="6" sdnum="1033;"><font size=2></font><textarea oninput="myReset()" id="remark" name="remark" style="overflow: hidden; resize: none; text-align: center; font-size: 15px; height: 100px; width: 250px" maxlength="80"></textarea></td>
+					<td style="border-left: 1px solid #000000" align="left"><br></td>
+				</tr>
+				<tr>
+					<td style="border-right: 1px solid #000000" height="17" align="left" sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><br></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><font face="Droid Sans Fallback">十</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><font face="Droid Sans Fallback">万</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><font face="Droid Sans Fallback">千</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><font face="Droid Sans Fallback">百</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><font face="Droid Sans Fallback">十</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><font face="Droid Sans Fallback">元</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><font face="Droid Sans Fallback">角</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><font face="Droid Sans Fallback">分</font></td>
+					<td style="border-left: 1px solid #000000" align="left" sdnum="1033;0;[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00"><br></td>
+				</tr>
+				<tr>
+					<td style="border-right: 1px solid #000000" height="27" align="left">（1）</td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="1" sdnum="1033;"><font size=1><input onfocus="myReset()" id="information1" name="information1" type="text" maxlength="20" style="text-align: center; width: 300px"/></font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="8" align="center"><input onfocus="myReset()" id="cash1" name="cash1" oninput onfocus="myReset()="getSum()" onkeypress='return event.charCode >= 46 && event.charCode <= 57 && event.charCode != 47'  type="text" style="width:65px; text-align: center; font-size: 13px" maxlength="9"></td>
+					<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><font face="Droid Sans Fallback" size=2>注</font></td>
+					<td style="border-left: 1px solid #000000" align="left"><br></td>
+				</tr>
+				<tr>
+					<td style="border-right: 1px solid #000000" height="27" align="left">（2）</td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="2" sdnum="1033;"><font size=1><input onfocus="myReset()" id="information2" name="information2" type="text" maxlength="20" style="text-align: center; width: 300px"/></font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="8" align="center"><input onfocus="myReset()" id="cash2" name="cash2" oninput onfocus="myReset()="getSum()" onkeypress='return event.charCode >= 46 && event.charCode <= 57 && event.charCode != 47'  type="text" style="width:65px; text-align: center; font-size: 13px" maxlength="9"></td>
+					<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top><font size=3><br></font></td>
+					<td style="border-left: 1px solid #000000" align="left"><br></td>
+				</tr>
+				<tr>
+					<td style="border-right: 1px solid #000000" height="27" align="left">（3）</td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="3" sdnum="1033;"><font size=1><input onfocus="myReset()" id="information3" name="information3" type="text" maxlength="20" style="text-align: center; width: 300px"/></font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="8" align="center"><input onfocus="myReset()" id="cash3" name="cash3" oninput onfocus="myReset()="getSum()" onkeypress='return event.charCode >= 46 && event.charCode <= 57 && event.charCode != 47'  type="text" style="width:65px; text-align: center; font-size: 13px" maxlength="9"></td>
+					<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><font face="Droid Sans Fallback" size=2>专项</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle><font size=3><br></font></td>
+					<td style="border-left: 1px solid #000000" align="left"><br></td>
+				</tr>
+				<tr>
+					<td style="border-right: 1px solid #000000" height="27" align="left">（4）</td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="4" sdnum="1033;"><font size=1><input onfocus="myReset()" id="information4" name="information4" type="text" maxlength="20" style="text-align: center; width: 300px"/></font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="8" align="center"><input onfocus="myReset()" id="cash4" name="cash4" oninput onfocus="myReset()="getSum()" onkeypress='return event.charCode >= 46 && event.charCode <= 57 && event.charCode != 47'  type="text" style="width:65px; text-align: center; font-size: 13px" maxlength="9"></td>
+					<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top><font face="Droid Sans Fallback" size=2>分类</font></td>
+					<td style="border-left: 1px solid #000000" align="left"><br></td>
+				</tr>
+				<tr>
+					<td style="border-right: 1px solid #000000" height="27" align="left">（5）</td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="5" sdnum="1033;"><font size=1><input onfocus="myReset()" id="information5" name="information5" type="text" maxlength="20" style="text-align: center; width: 300px"/></font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="8" align="center"><input onfocus="myReset()" id="cash5" name="cash5" oninput onfocus="myReset()="getSum()" onkeypress='return event.charCode >= 46 && event.charCode <= 57 && event.charCode != 47'  type="text" style="width:65px; text-align: center; font-size: 13px" maxlength="9"></td>
+					<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><font face="Droid Sans Fallback" size=2>领导</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=middle><font size=3><br></font></td>
+					<td style="border-left: 1px solid #000000" align="left"><br></td>
+				</tr>
+				<tr>
+					<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle><font face="Droid Sans Fallback" size=2 color="#000000">合</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="Droid Sans Fallback" size=2>计</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="8" align="center"><label id="total1">0</label></td>
+					<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top><font face="Droid Sans Fallback" size=2>审批</font></td>
+					<td style="border-left: 1px solid #000000" align="left"><br></td>
+				</tr>
+				<tr>
+					<td style="border-right: 1px solid #000000" height="46" align="left"><br></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=2>金额大写：</font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan=9 align="left" valign=middle><font face="Droid Sans Fallback" size=2></font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=3></font></td>
+					<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle sdval="￥1" sdnum="1033;"><font face="宋体" size=2>￥</font><label id="total2">0</label></td>
+					<td style="border-left: 1px solid #000000" align="left"><br></td>
+				</tr>
+				<tr>
+					<td height="27" align="left"><br></td>
+					<td style="border-top: 1px solid #000000" align="left" valign=middle><font face="Droid Sans Fallback" size=2>会计主管： </font></td>
+					<td style="border-top: 1px solid #000000" colspan=3 align="center" valign=middle><font face="Droid Sans Fallback" size=2>审批： </font></td>
+					<td style="border-top: 1px solid #000000" align="left"><font size=3><br></font></td>
+					<td style="border-top: 1px solid #000000" align="left"><font size=3><br></font></td>
+					<td style="border-top: 1px solid #000000" colspan=5 align="right" valign=top><font face="Droid Sans Fallback" size=2>证明： </font></td>
+					<td style="border-top: 1px solid #000000" align="center" valign=top><font face="Droid Sans Fallback" size=2>报销人： </font></td>
+					<td align="left"><br></td>
+				</tr>
+				<tr>
+					<td height="24" align="left"><br></td>
+					<td colspan=2 align="left" valign=middle><font face="Droid Sans Fallback" size=1>单号：xxxxxxxxxxxxxx</font></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+					<td align="left"><br></td>
+				</tr>
+				<tr>
+					<td height="80px" align="left" valign=middle></td>
+					<td align="left" colspan="16"><input type="button" value="检测" onclick="verifyNumber()"/> <input id="commit" name="commit" type="submit" value="预览" disabled="disabled"/> <input type="button" value="重置" onclick="reset()"/></a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<!-- ************************************************************************** -->
 </body>
+
 </html>

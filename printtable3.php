@@ -16,12 +16,16 @@
 	$pages = $_POST['pages'];
 	$apartment = $_POST['apartment'];
 	
+	$year = $_POST['year'];
+	$month = $_POST['month'];
+	$day = $_POST['day'];
+	
 	$cash1 = (float)$_POST['cash1'];
 	$cash2 = (float)$_POST['cash2'];
 	$cash3 = (float)$_POST['cash3'];
 	$cash4 = (float)$_POST['cash4'];
 	$cash5 = (float)$_POST['cash5'];
-	$sum = (float)$_POST['sum'];
+	$sum = (float)($cash1 + $cash2 + $cash3 + $cash4 + $cash5);
 	
 	$information1 = $_POST['information1'];
 	$information2 = $_POST['information2'];
@@ -64,6 +68,7 @@
 		$result = array("", "", "", "", "", "", "", "");
 		$i = 0;
 		$arg *= 100;
+		$arg = $arg . ""; //float 直接转成 string 会出误差
 		while((int)$arg > 0) {
 			$result[$i++] = $arg % 10;
 			$arg /=10;
@@ -73,6 +78,26 @@
 		}
 		return $result[$mode - 1];
 	}
+	
+	$total = turn($sum, 8, 1) . turn($sum, 7, 2) . turn($sum, 6, 3) . turn($sum, 5, 4) . turn($sum, 4, 5) . turn($sum, 3, 6) . turn($sum, 2, 7) . turn($sum, 1, 8);
+	if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0 && result($sum, 4) == 0 && result($sum, 5) && result($sum, 6) == 0 && result($sum, 7) == 0) {
+		$total = substr($total, 0, (strlen($total) - 42)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0 && result($sum, 4) == 0 && result($sum, 5) && result($sum, 6) == 0) {
+		$total = substr($total, 0, (strlen($total) - 36)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0 && result($sum, 4) == 0 && result($sum, 5)) {
+		$total = substr($total, 0, (strlen($total) - 30)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0 && result($sum, 4) == 0) {
+		$total = substr($total, 0, (strlen($total) - 24)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0 && result($sum, 3) == 0)  {
+		$total = substr($total, 0, (strlen($total) - 18)) . "整";
+	} else if (result($sum, 1) == 0 && result($sum, 2) == 0) {
+		$total = substr($total, 0, (strlen($total) - 12)) . "整";
+	} else if (result($sum, 1) == 0){
+		$total = substr($total, 0, (strlen($total) - 6));
+	}
+	
+	if ($sum == "0")
+		$total = "";
 	
     $myDb = mysql_connect("localhost:3306", "root", "hackingme?233333");
 	mysql_set_charset("utf8");
@@ -95,7 +120,8 @@
 		body {width: 850px; margin: 0 auto; padding: 0}
 		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Liberation Sans"; font-size:x-small }
 	</style>
-	
+	<script>
+	</script>
 </head>
 
 <body>
@@ -116,7 +142,7 @@
 		<td height="45" align="left"><br></td>
 		<td style="border-bottom: 1px solid #000000" align="left" valign=bottom><font face="Droid Sans Fallback" size=2><?php echo "报销部门：" . $apartment?></font></td>
 		<td style="border-bottom: 1px solid #000000" align="left"><font size=3><br></font></td>
-		<td style="border-bottom: 1px solid #000000" colspan=9 align="center" valign=bottom><font face="Droid Sans Fallback" size=2>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</font></td>
+		<td style="border-bottom: 1px solid #000000" colspan=9 align="center" valign=bottom><font face="Droid Sans Fallback" size=2><?php echo $year . ""?>年<?php echo $month . ""?>月<?php if($day >= 10) echo $day . ""; else echo " " .$day?>日</font></td>
 		<td style="border-bottom: 1px solid #000000" align="right" valign=bottom><font face="Droid Sans Fallback" size=2><?php echo "单据及附件共 " . $pages . " 张"?></font></td>
 		<td align="left"><br></td>
 	</tr>
@@ -127,7 +153,7 @@
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan=4 align="center" valign=middle><font face="Droid Sans Fallback" size=2>金</font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" colspan=4 align="center" valign=middle><font face="Droid Sans Fallback" size=2>额</font></td>
 		<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 align="center" valign=bottom><font face="Droid Sans Fallback" size=2>备</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=4 align="center" valign=middle sdval="6" sdnum="1033;"><font size=2><?php echo "$remark"?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=4 align="center" valign=middle sdval="6" sdnum="1033;"><lable style="font-size: 14px"><?php echo "$remark"?></lable></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>
 	</tr>
 	<tr>
@@ -144,7 +170,7 @@
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="1" sdnum="1033;"><font size=1><?php echo "$information1"?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="1" sdnum="1033;"><lable style="font-size: 13px"><?php echo "$information1"?></lable></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 8)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 7)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash1, 6)?></font></td>
@@ -158,7 +184,7 @@
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="2" sdnum="1033;"><font size=1><?php echo "$information2"?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="2" sdnum="1033;"><lable style="font-size: 13px"><?php echo "$information2"?></lable></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 8)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 7)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash2, 6)?></font></td>
@@ -172,7 +198,7 @@
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="3" sdnum="1033;"><font size=1><?php echo "$information3"?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="3" sdnum="1033;"><lable style="font-size: 13px"><?php echo "$information3"?></lable></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 8)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 7)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash3, 6)?></font></td>
@@ -187,7 +213,7 @@
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="4" sdnum="1033;"><font size=1><?php echo "$information4"?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="4" sdnum="1033;"><lable style="font-size: 13px"><?php echo "$information4"?></lable></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 8)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 7)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash4, 6)?></font></td>
@@ -201,7 +227,7 @@
 	</tr>
 	<tr>
 		<td style="border-right: 1px solid #000000" height="27" align="left"><br></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="5" sdnum="1033;"><font size=1><?php echo "$information5"?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 align="center" valign=middle sdval="5" sdnum="1033;"><lable style="font-size: 13px"><?php echo "$information5"?></lable></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 8)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 7)?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><font size=2><?php echo result($cash5, 6)?></font></td>
@@ -232,7 +258,7 @@
 	<tr>
 		<td style="border-right: 1px solid #000000" height="46" align="left"><br></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=2>金额大写：</font></td>
-		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan=9 align="left" valign=middle><font face="Droid Sans Fallback" size=2><?php echo turn($sum, 8, 1) . turn($sum, 7, 2) . turn($sum, 6, 3) . turn($sum, 5, 4) . turn($sum, 4, 5) . turn($sum, 3, 6) . turn($sum, 2, 7) . turn($sum, 1, 8)?></font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan=9 align="left" valign=middle><font face="Droid Sans Fallback" size=2><?php echo "" . $total;?></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="right" valign=middle><font face="Droid Sans Fallback" size=3></font></td>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle sdval="<?php echo "￥" . $sum?>" sdnum="1033;"><font face="宋体" size=2><?php echo "￥" . "$sum"?></font></td>
 		<td style="border-left: 1px solid #000000" align="left"><br></td>

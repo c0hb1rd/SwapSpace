@@ -13,6 +13,10 @@
 		$datetime = date("Ymd") . $hour . date("is");
 	}
 	
+	//数据库用户名和密码
+	$db_user = "";
+	$db_passwd = "";
+	
 	$myYear = $_POST['year'];
 	$myMonth = $_POST['month'];
 	$myDay = $_POST['day'];
@@ -113,14 +117,14 @@
 	$user = $_POST['user'];
 	$information = $_POST['information'];
 
-	$car_cash = "" . ((float)(float)$car_cash1 + (float)$car_cash2 + (float)$car_cash3 + (float)$car_cash4 + (float)$car_cash5);
-	$house_cash = "" . ((float)$house_cash1 + (float)$house_cash2 + (float)$house_cash3 + (float)$house_cash4 + (float)$house_cash5);
-	// $meet_cash = 
-	// $peopel = 
-	// $days = 
-	// $trafic_cash = 
-	// $food_cash = 
-	// $total_cash = 
+	// $car_cash = "" . ((float)(float)$car_cash1 + (float)$car_cash2 + (float)$car_cash3 + (float)$car_cash4 + (float)$car_cash5);
+	// $house_cash = "" . ((float)$house_cash1 + (float)$house_cash2 + (float)$house_cash3 + (float)$house_cash4 + (float)$house_cash5);
+	// // $meet_cash = 
+	// // $peopel = 
+	// // $days = 
+	// // $trafic_cash = 
+	// // $food_cash = 
+	// // $total_cash = 
 
 	function turn2($mode) {
 		switch ($mode) {
@@ -186,6 +190,23 @@
 	if ($sum == "0")
 		$total = "";
 	
+	$myDb = mysql_connect("localhost:3306", $db_user. $db_passwd); 
+	mysql_set_charset("utf8");
+	mysql_select_db("formdb", $myDb);
+	mysql_query("set charset set 'utf8'");
+	mysql_query("set name 'utf8'");
+	mysql_query("INSERT INTO form2(id, pages, apartment, username, total, work, remark,
+	 month1, day1, start1, end1, car_cash1, house_cash1, meet_cash1, people_cash1, days_cash1, traffic_cash1, food_cash1, total_cash1, total1, 
+	 month2, day2, start2, end2, car_cash2, house_cash2, meet_cash2, people_cash2, days_cash2, traffic_cash2, food_cash2, total_cash2, total2,
+	 month3, day3, start3, end3, car_cash3, house_cash3, meet_cash3, people_cash3, days_cash3, traffic_cash3, food_cash3, total_cash3, total3,
+	 month4, day4, start4, end4, car_cash4, house_cash4, meet_cash4, people_cash4, days_cash4, traffic_cash4, food_cash4, total_cash4, total4,
+	 month5, day5, start5, end5, car_cash5, house_cash5, meet_cash5, people_cash5, days_cash5, traffic_cash5, food_cash5, total_cash5, total5)
+	 values(\"$datetime\", $pages, \"$apartment\", \"$user\", $SUM, \"$work\", \"$information\",
+	 $month1, $day1, \"$start1\", \"$end1\", $car_cash1, $house_cash1, $meet_cash1, $people1, $days1, $traffic_cash1, $food_cash1, $total_cash1, $total1,
+	 $month2, $day2, \"$start2\", \"$end2\", $car_cash2, $house_cash2, $meet_cash2, $people2, $days2, $traffic_cash2, $food_cash2, $total_cash2, $total2,
+	 $month3, $day3, \"$start3\", \"$end3\", $car_cash3, $house_cash3, $meet_cash3, $people3, $days3, $traffic_cash3, $food_cash3, $total_cash3, $total3,
+	 $month4, $day4, \"$start4\", \"$end4\", $car_cash4, $house_cash4, $meet_cash4, $people4, $days4, $traffic_cash4, $food_cash4, $total_cash4, $total4,
+	 $month5, $day5, \"$start5\", \"$end5\", $car_cash5, $house_cash5, $meet_cash5, $people5, $days5, $traffic_cash5, $food_cash5, $total_cash5, $total5)");
 ?>
 <html>
 <head>

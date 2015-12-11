@@ -13,6 +13,10 @@
 		$datetime = date("Ymd") . $hour . date("is");
 	}
 	
+	//数据库用户名和密码
+	$db_user = "";
+	$db_passwd = ""; 
+	
 	$pages = $_POST['pages'];
 	$apartment = $_POST['apartment'];
 	
@@ -99,11 +103,16 @@
 	if ($sum == "0")
 		$total = "";
 	
-    $myDb = mysql_connect("localhost:3306", "root", "hackingme?233333");
+    $myDb = mysql_connect("localhost:3306", $db_user. $db_passwd); 
 	mysql_set_charset("utf8");
 	mysql_select_db("formdb", $myDb);
 	mysql_query("set character set 'utf8'");
 	mysql_query("set names 'utf8'");
+	mysql_query("insert into form3(pages, id, apartment, total, cash1, cash2, cash3, cash4, cash5,
+	information1, information2, information3, information4, information5, remark) 
+	values($pages, $datetime, \"$apartment\", $sum, $cash1, $cash2, $cash3, $cash4, $cash5,
+	\"$information1\", \"$information2\", \"$information3\", \"$information4\", \"$information5\", \"$remark\")");
+#	mysql_query("insert into form3(id, pages, apartment, username, total, cash1, cash2, cash3, cash4, cash5, information1, information2, information3, information4, information5, remark) values(\"$datetime\", $pages, \"$apartment\", \"$username\", $sum, $cash1, $cash2, $cash3, $cash4, $cash5, \"$information1\", \"$information2\", \"$information3\", \"$information4\", \"$information5\", \"$remark)\"");
 ?>
 <html>
 <head>

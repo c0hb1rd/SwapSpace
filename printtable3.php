@@ -13,8 +13,8 @@
 		$datetime = date("Ymd") . $hour . date("is");
 	}
 	
-	$db_user = "root";
-	$db_passwd = "hackingme?233333";
+	$db_user = "";
+	$db_passwd = "";
 
 	$pages = $_POST['pages'];
 	$apartment = $_POST['apartment'];

@@ -16,88 +16,80 @@
 	//数据库用户名和密码
 	$db_user = "";
 	$db_passwd = "";
-	
+
 	$myYear = $_POST['year'];
 	$myMonth = $_POST['month'];
 	$myDay = $_POST['day'];
 
-	$month1 = $_POST['month1'];
-	$day1 = $_POST['day1'];
+	$month1 = (int)$_POST['month1'];
+	$day1 = (int)$_POST['day1'];
 	$start1 = $_POST['start1'];
 	$end1 = $_POST['end1'];
-	$car_cash1 = $_POST['car_cash1'];
-	$house_cash1 = $_POST['house_cash1'];
-	$meet_cash1 = $_POST['meet_cash1'];
-	$people1 = $_POST['people1'];
-	$days1 = $_POST['days1'];
-	$traffic_cash1 = $_POST['traffic_cash1'];
-	$food_cash1 = $_POST['food_cash1'];
-	$total_cash1 = $_POST['total_cash1'];
-	$total1 = $_POST['SUM1'];
+	$car_cash1 = (float)$_POST['car_cash1'];
+	$house_cash1 = (float)$_POST['house_cash1'];
+	$meet_cash1 = (float)$_POST['meet_cash1'];
+	$people1 = (int)$_POST['people1'];
+	$days1 = (int)$_POST['days1'];
+	$traffic_cash1 = (float)$_POST['traffic_cash1'];
+	$food_cash1 = (float)$_POST['food_cash1'];
+	$total_cash1 = (float)$_POST['total_cash1'];
+	$total1 = (float)$_POST['SUM1'];
 
-	$month2 = $_POST['month2'];
-	$day2 = $_POST['day2'];
+	$month2 = (int)$_POST['month2'];
+	$day2 = (int)$_POST['day2'];
 	$start2 = $_POST['start2'];
 	$end2 = $_POST['end2'];
-	$car_cash2 = $_POST['car_cash2'];
-	$house_cash2 = $_POST['house_cash2'];
-	$meet_cash2 = $_POST['meet_cash2'];
-	$people2 = $_POST['people2'];
-	$days2 = $_POST['days2'];
-	$traffic_cash2 = $_POST['traffic_cash2'];
-	$food_cash2 = $_POST['food_cash2'];
-	$total_cash2 = $_POST['total_cash2'];
-	$total2 = $_POST['SUM2'];
-	if ($total2 == "0")
-		$total2 = "";
+	$car_cash2 = (float)$_POST['car_cash2'];
+    $house_cash2 = (float)$_POST['house_cash2'];
+	$meet_cash2 = (float)$_POST['meet_cash2'];
+	$people2 = (int)$_POST['people2'];
+	$days2 = (int)$_POST['days2'];
+	$traffic_cash2 = (float)$_POST['traffic_cash2'];
+	$food_cash2 = (float)$_POST['food_cash2'];
+	$total_cash2 = (float)$_POST['total_cash2'];
+	$total2 = (float)$_POST['SUM2'];
 
-	$month3 = $_POST['month3'];
-	$day3 = $_POST['day3'];
+	$month3 = (int)$_POST['month3'];
+	$day3 = (int)$_POST['day3'];
 	$start3 = $_POST['start3'];
 	$end3 = $_POST['end3'];
-	$car_cash3 = $_POST['car_cash3'];
-	$house_cash3 = $_POST['house_cash3'];
-	$meet_cash3 = $_POST['meet_cash3'];
-	$people3 = $_POST['people3'];
-	$days3 = $_POST['days3'];
-	$traffic_cash3 = $_POST['traffic_cash3'];
-	$food_cash3 = $_POST['food_cash3'];
-	$total_cash3 = $_POST['total_cash3'];
-	$total3 = $_POST['SUM3'];
-	if ($total3 == "0")
-		$total3 = "";
+	$car_cash3 = (float)$_POST['car_cash3'];
+	$house_cash3 = (float)$_POST['house_cash3'];
+	$meet_cash3 = (float)$_POST['meet_cash3'];
+	$people3 = (int)$_POST['people3'];
+	$days3 = (int)$_POST['days3'];
+	$traffic_cash3 = (float)$_POST['traffic_cash3'];
+	$food_cash3 = (float)$_POST['food_cash3'];
+	$total_cash3 = (float)$_POST['total_cash3'];
+	$total3 = (float)$_POST['SUM3'];
 
-	$month4 = $_POST['month4'];
-	$day4 = $_POST['day4'];
+	$month4 = (int)$_POST['month4'];
+	$day4 = (int)$_POST['day4'];
 	$start4 = $_POST['start4'];
 	$end4 = $_POST['end4'];
-	$car_cash4 = $_POST['car_cash4'];
-	$house_cash4 = $_POST['house_cash4'];
-	$meet_cash4 = $_POST['meet_cash4'];
-	$people4 = $_POST['people4'];
-	$days4 = $_POST['days4'];
-	$traffic_cash4 = $_POST['traffic_cash4'];
-	$food_cash4 = $_POST['food_cash4'];
-	$total_cash4 = $_POST['total_cash4'];
-	$total4 = $_POST['SUM4'];
-	if ($total4 == "0")
-		$total4 = "";
+	$car_cash4 = (float)$_POST['car_cash4'];
+	$house_cash4 = (float)$_POST['house_cash4'];
+	$meet_cash4 = (float)$_POST['meet_cash4'];
+	$people4 = (int)$_POST['people4'];
+	$days4 = (int)$_POST['days4'];
+	$traffic_cash4 = (float)$_POST['traffic_cash4'];
+	$food_cash4 = (float)$_POST['food_cash4'];
+	$total_cash4 = (float)$_POST['total_cash4'];
+	$total4 = (float)$_POST['SUM4'];
 
-	$month5 = $_POST['month5'];
-	$day5 = $_POST['day5'];
+	$month5 = (int)$_POST['month5'];
+	$day5 = (int)$_POST['day5'];
 	$start5 = $_POST['start5'];
 	$end5 = $_POST['end5'];
-	$car_cash5 = $_POST['car_cash5'];
-	$house_cash5 = $_POST['house_cash5'];
-	$meet_cash5 = $_POST['meet_cash5'];
-	$people5 = $_POST['people5'];
-	$days5 = $_POST['days5'];
-	$traffic_cash5 = $_POST['traffic_cash5'];
-	$food_cash5 = $_POST['food_cash5'];
-	$total_cash5 = $_POST['total_cash5'];
-	$total5 = $_POST['SUM5'];
-	if ($total5 == "0")
-		$total5 = "";
+	$car_cash5 = (float)$_POST['car_cash5'];
+	$house_cash5 = (float)$_POST['house_cash5'];
+	$meet_cash5 = (float)$_POST['meet_cash5'];
+	$people5 = (int)$_POST['people5'];
+	$days5 = (int)$_POST['days5'];
+	$traffic_cash5 = (float)$_POST['traffic_cash5'];
+	$food_cash5 = (float)$_POST['food_cash5'];
+	$total_cash5 = (float)$_POST['total_cash5'];
+	$total5 = (float)$_POST['SUM5'];
 
 	$sum = "" . ((float)$total1 + (float)$total2 + (float)$total3 + (float)$total4 + (float)$total5);
 	
@@ -109,7 +101,7 @@
 	$Traffic_cash = $_POST['Traffic_cash'];
 	$Food_cash = $_POST['Food_cash'];
 	$Total_cash = $_POST['Total_cash'];
-	$SUM = $_POST['SUM'];
+	$SUM = (float)$_POST['SUM'];
 
 	$apartment = $_POST['apartment'];
 	$pages = $_POST['pages'];
@@ -190,23 +182,107 @@
 	if ($sum == "0")
 		$total = "";
 	
-	$myDb = mysql_connect("localhost:3306", $db_user. $db_passwd); 
+	$myDb = mysql_connect("localhost:3306", $db_user, $db_passwd);
 	mysql_set_charset("utf8");
 	mysql_select_db("formdb", $myDb);
 	mysql_query("set charset set 'utf8'");
 	mysql_query("set name 'utf8'");
-	mysql_query("INSERT INTO form2(id, pages, apartment, username, total, work, remark,
-	 month1, day1, start1, end1, car_cash1, house_cash1, meet_cash1, people_cash1, days_cash1, traffic_cash1, food_cash1, total_cash1, total1, 
-	 month2, day2, start2, end2, car_cash2, house_cash2, meet_cash2, people_cash2, days_cash2, traffic_cash2, food_cash2, total_cash2, total2,
-	 month3, day3, start3, end3, car_cash3, house_cash3, meet_cash3, people_cash3, days_cash3, traffic_cash3, food_cash3, total_cash3, total3,
-	 month4, day4, start4, end4, car_cash4, house_cash4, meet_cash4, people_cash4, days_cash4, traffic_cash4, food_cash4, total_cash4, total4,
-	 month5, day5, start5, end5, car_cash5, house_cash5, meet_cash5, people_cash5, days_cash5, traffic_cash5, food_cash5, total_cash5, total5)
-	 values(\"$datetime\", $pages, \"$apartment\", \"$user\", $SUM, \"$work\", \"$information\",
-	 $month1, $day1, \"$start1\", \"$end1\", $car_cash1, $house_cash1, $meet_cash1, $people1, $days1, $traffic_cash1, $food_cash1, $total_cash1, $total1,
-	 $month2, $day2, \"$start2\", \"$end2\", $car_cash2, $house_cash2, $meet_cash2, $people2, $days2, $traffic_cash2, $food_cash2, $total_cash2, $total2,
-	 $month3, $day3, \"$start3\", \"$end3\", $car_cash3, $house_cash3, $meet_cash3, $people3, $days3, $traffic_cash3, $food_cash3, $total_cash3, $total3,
-	 $month4, $day4, \"$start4\", \"$end4\", $car_cash4, $house_cash4, $meet_cash4, $people4, $days4, $traffic_cash4, $food_cash4, $total_cash4, $total4,
-	 $month5, $day5, \"$start5\", \"$end5\", $car_cash5, $house_cash5, $meet_cash5, $people5, $days5, $traffic_cash5, $food_cash5, $total_cash5, $total5)");
+	// mysql_query("INSERT INTO form2(id, work) values(\"$datetime\", \"$work\")");
+	mysql_query("INSERT INTO form2(
+	id, pages, apartment, username, total, work, remark,
+	month1, day1, start1, end1, car_cash1, house_cash1, meet_cash1, people_cash1, days_cash1, traffic_cash1, food_cash1, total_cash1, total1, 
+	month2, day2, start2, end2, car_cash2, house_cash2, meet_cash2, people_cash2, days_cash2, traffic_cash2, food_cash2, total_cash2, total2,
+	month3, day3, start3, end3, car_cash3, house_cash3, meet_cash3, people_cash3, days_cash3, traffic_cash3, food_cash3, total_cash3, total3,
+	month4, day4, start4, end4, car_cash4, house_cash4, meet_cash4, people_cash4, days_cash4, traffic_cash4, food_cash4, total_cash4, total4,
+	month5, day5, start5, end5, car_cash5, house_cash5, meet_cash5, people_cash5, days_cash5, traffic_cash5, food_cash5, total_cash5, total5)
+	values(
+	\"$datetime\", $pages, \"$apartment\", \"$user\", $SUM, \"$work\", \"$information\",
+	$month1, $day1, \"$start1\", \"$end1\", $car_cash1, $house_cash1, $meet_cash1, $people1, $days1, $traffic_cash1, $food_cash1, $total_cash1, $total1,
+	$month2, $day2, \"$start2\", \"$end2\", $car_cash2, $house_cash2, $meet_cash2, $people2, $days2, $traffic_cash2, $food_cash2, $total_cash2, $total2,
+	$month3, $day3, \"$start3\", \"$end3\", $car_cash3, $house_cash3, $meet_cash3, $people3, $days3, $traffic_cash3, $food_cash3, $total_cash3, $total3,
+	$month4, $day4, \"$start4\", \"$end4\", $car_cash4, $house_cash4, $meet_cash4, $people4, $days4, $traffic_cash4, $food_cash4, $total_cash4, $total4,
+	$month5, $day5, \"$start5\", \"$end5\", $car_cash5, $house_cash5, $meet_cash5, $people5, $days5, $traffic_cash5, $food_cash5, $total_cash5, $total5)");
+	// mysql_query(
+	// 	"INSERT INTO form2(
+	// 		id, pages, apartment, username, total, work, remark,
+	// 		month1, day1, start1, end1, car_cash1, house_cash1, meet_cash1, people_cash1, days_cash1, traffic_cash1, food_cash1, total_cash1, total1
+	// 		) 
+	// 	values(
+	// 		\"$datetime\", $pages, \"$apartment\", \"$user\", $SUM, \"$work\", \"$information\",
+	// 		$month1, $day1, \"$start1\", \"$end1\", $car_cash1, $house_cash1, $meet_cash1, $people1, $days1, $traffic_cash1, $food_cash1, $total_cash1, $total1
+	// 		)"
+	// );
+		
+	$month1 = $_POST['month1'];
+	$day1 = $_POST['day1'];
+	$start1 = $_POST['start1'];
+	$end1 = $_POST['end1'];
+	$car_cash1 = $_POST['car_cash1'];
+	$house_cash1 = $_POST['house_cash1'];
+	$meet_cash1 = $_POST['meet_cash1'];
+	$people1 = $_POST['people1'];
+	$days1 = $_POST['days1'];
+	$traffic_cash1 = $_POST['traffic_cash1'];
+	$food_cash1 = $_POST['food_cash1'];
+	$total_cash1 = $_POST['total_cash1'];
+	$total1 = $_POST['SUM1'];
+
+	$month2 = $_POST['month2'];
+	$day2 = $_POST['day2'];
+	$start2 = $_POST['start2'];
+	$end2 = $_POST['end2'];
+	$car_cash2 = $_POST['car_cash2'];
+    $house_cash2 = $_POST['house_cash2'];
+	$meet_cash2 = $_POST['meet_cash2'];
+	$people2 = $_POST['people2'];
+	$days2 = $_POST['days2'];
+	$traffic_cash2 = $_POST['traffic_cash2'];
+	$food_cash2 = $_POST['food_cash2'];
+	$total_cash2 = $_POST['total_cash2'];
+	$total2 = $_POST['SUM2'];
+
+	$month3 = $_POST['month3'];
+	$day3 = $_POST['day3'];
+	$start3 = $_POST['start3'];
+	$end3 = $_POST['end3'];
+	$car_cash3 = $_POST['car_cash3'];
+	$house_cash3 = $_POST['house_cash3'];
+	$meet_cash3 = $_POST['meet_cash3'];
+	$people3 = $_POST['people3'];
+	$days3 = $_POST['days3'];
+	$traffic_cash3 = $_POST['traffic_cash3'];
+	$food_cash3 = $_POST['food_cash3'];
+	$total_cash3 = $_POST['total_cash3'];
+	$total3 = $_POST['SUM3'];
+
+	$month4 = $_POST['month4'];
+	$day4 = $_POST['day4'];
+	$start4 = $_POST['start4'];
+	$end4 = $_POST['end4'];
+	$car_cash4 = $_POST['car_cash4'];
+	$house_cash4 = $_POST['house_cash4'];
+	$meet_cash4 = $_POST['meet_cash4'];
+	$people4 = $_POST['people4'];
+	$days4 = $_POST['days4'];
+	$traffic_cash4 = $_POST['traffic_cash4'];
+	$food_cash4 = $_POST['food_cash4'];
+	$total_cash4 = $_POST['total_cash4'];
+	$total4 = $_POST['SUM4'];
+
+	$month5 = $_POST['month5'];
+	$day5 = $_POST['day5'];
+	$start5 = $_POST['start5'];
+	$end5 = $_POST['end5'];
+	$car_cash5 = $_POST['car_cash5'];
+	$house_cash5 = $_POST['house_cash5'];
+	$meet_cash5 = $_POST['meet_cash5'];
+	$people5 = $_POST['people5'];
+	$days5 = $_POST['days5'];
+	$traffic_cash5 = $_POST['traffic_cash5'];
+	$food_cash5 = $_POST['food_cash5'];
+	$total_cash5 = $_POST['total_cash5'];
+	$total5 = $_POST['SUM5'];
+	$SUM = $_POST['SUM'];
 ?>
 <html>
 <head>
